@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek Shylesh</title>
+    <style>
+        :root {
+            --background-dark: #121212;
+            --surface-dark: #1e1e1e;
+            --primary-text-dark: #e0e0e0;
+            --secondary-text-dark: #a0a0a0;
+            --accent-color: #007bff;
+
+            --background-light: #f5f5f5;
+            --surface-light: #ffffff;
+            --primary-text-light: #212121;
+            --secondary-text-light: #616161;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: var(--background-dark);
+            color: var(--primary-text-dark);
+        }
+
+        body.light-mode {
+            background-color: var(--background-light);
+            color: var(--primary-text-light);
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 16px;
+        }
+
+        .dark-mode .container {
+            background-color: var(--surface-dark);
+        }
+
+        .light-mode .container {
+            background-color: var(--surface-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent-color);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .dark-mode h1 {
+            color: var(--primary-text-dark);
+        }
+
+        .light-mode h1 {
+            color: var(--primary-text-light);
+        }
+
+        .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .dark-mode .description {
+            color: var(--secondary-text-dark);
+        }
+
+        .light-mode .description {
+            color: var(--secondary-text-light);
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+            font-size: 1.1rem;
+        }
+        
+        .dark-mode .link {
+            background-color: #2a2a2a;
+            color: var(--primary-text-dark);
+        }
+
+        .light-mode .link {
+            background-color: #e0e0e0;
+            color: var(--primary-text-light);
+        }
+
+        .link:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        .link:hover .icon {
+            filter: invert(1);
+        }
+
+        .link .icon {
+            margin-right: 1rem;
+            width: 24px;
+            height: 24px;
+        }
+
+        .dark-mode .link .icon {
+             filter: invert(0.8);
+        }
+        
+        .light-mode .link .icon {
+            filter: invert(0.2);
+        }
+
+        .theme-switcher {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+
+    <div class="container">
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Abhishek Shylesh</h1>
+        <p class="description">
+            Hi! I am an Computer Engineer major at UMass Amherst. I love hardware electronics and to debug my efficiently long codes ; )
+        </p>
+        <div class="links">
+            <a href="https://linkedin.com/in/abhishy" class="link" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/Abhishekdev-07" class="link" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                Github
+            </a>
+            <a href="https://avidliteraryworld.wordpress.com/" class="link" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21 5.001c-1.115.498-2.305.832-3.565.977 1.285-.77 2.27-1.99 2.735-3.433-.695.412-2.365.926-3.572 1.365-1.12-1.192-2.71-1.936-4.488-1.936-3.398 0-6.155 2.756-6.155 6.154 0 .482.055.95.16 1.4-5.118-.258-9.655-2.708-12.695-6.435-.53.91-.835 1.97-.835 3.095 0 2.135 1.085 4.02 2.74 5.125-.995-.03-1.93-.305-2.75-.76v.08c0 2.98 2.12 5.465 4.93 6.03-.515.14-1.055.215-1.625.215-.395 0-.78-.04-1.155-.11 1.36 3.23 3.33 4.5 6.22 4.555-2.375 1.86-5.355 2.97-8.6 2.97-.56 0-1.115-.03-1.66-.095 2.79 1.79 6.12 2.835 9.72 2.835 11.665 0 18.055-9.664 18.055-18.055 0-.275-.005-.55-.015-.82.66-.475 2-1.5 2.8-2.5z"/>
+                </svg>
+                Blog
+            </a>
+        </div>
+    </div>
+    <button class="theme-switcher" id="theme-switcher">🌙</button>
+
+    <script>
+        const themeSwitcher = document.getElementById('theme-switcher');
+        const body = document.body;
+
+        const setDarkMode = () => {
+            body.classList.add('dark-mode');
+            body.classList.remove('light-mode');
+            themeSwitcher.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+        };
+
+        const setLightMode = () => {
+            body.classList.add('light-mode');
+            body.classList.remove('dark-mode');
+            themeSwitcher.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+        };
+
+        themeSwitcher.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                setLightMode();
+            } else {
+                setDarkMode();
+            }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            if (savedTheme === 'dark') {
+                setDarkMode();
+            } else {
+                setLightMode();
+            }
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Check for OS preference
+            setDarkMode();
+        } else {
+            setLightMode();
+        }
+    </script>
+</body>
+</html>
